@@ -41,6 +41,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('files/{id}', [\App\Http\Controllers\Admin\FileController::class, 'index'])->name('file');
         Route::get('files/{id}/send/user/{customer}', [\App\Http\Controllers\Admin\FileController::class, 'send'])->name('file.send');
 
+        Route::post('files/{customer}/send/user/', [\App\Http\Controllers\Admin\FileController::class, 'multiple'])->name('file.multiple');
+
         // Profile
         Route::get('profile', [\App\Http\Controllers\Admin\ProfileController::class, 'index'])->name('profile');
         Route::post('profile', [\App\Http\Controllers\Admin\ProfileController::class, 'update'])->name('profile.update');
